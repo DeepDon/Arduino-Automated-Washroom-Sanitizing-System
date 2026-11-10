@@ -7,3 +7,32 @@ An automated, IoT-enabled public washroom sanitization, air quality monitoring, 
 ## 🛠 System Architecture & Block Diagram
 
 The system is structured into three integrated functional modules:
+
++-----------------------------------------------------------------------+
+|                              PART A: MONITORING & SANITATION          |
+|                                                                       |
+|   +-------------------+                     +---------------------+   |
+|   |    PIR Sensor     | ==================> |                     |   |
+|   +-------------------+                     |     Arduino Uno     |   |
+|   |    Gas Sensor     | > |    Microcontroller  |   |
+|   |    (MQ-135)       |                     |     (ATmega328P)    |   |
+|   +-------------------+                     +----------+----------+   |
+|                                                        |              |
+|                                                        v              |
+|   +-------------------+                     +---------------------+   |
+|   |   LCD Display     | < |   Relay & Pressure  |   |
+|   |   & Buzzer        |                     |   Pump / Sprayer    |   |
+|   +-------------------+                     +---------------------+   |
++-----------------------------------------------------------------------+
+
++-----------------------------------------------------------------------+
+|                        PART B: AUTOMATED HANDWASH                     |
+|                                                                       |
+|   [ Proximity Sensor ] ===> [ Transistor Driver ] ===> [ DC Pump ]    |
++-----------------------------------------------------------------------+
+
++-----------------------------------------------------------------------+
+|                        PART C: IOT MONITORING UNIT                    |
+|                                                                       |
+|   [ NodeMCU (ESP8266) ] ===> [ Display Unit (Global COVID Cases) ]    |
++-----------------------------------------------------------------------+
